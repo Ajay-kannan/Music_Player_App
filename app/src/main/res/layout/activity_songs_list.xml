@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1D1F3E"
+    tools:context=".SongsList">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/song_card_view"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:backgroundTint="#1D1F3E">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/sond_card_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:alpha="0.7" />
+
+            <TextView
+                android:id="@+id/song_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/follow_btn"
+                android:layout_marginLeft="35dp"
+                android:text="the song title"
+                android:textColor="@color/white"
+                android:textSize="24dp"
+                />
+
+            <ImageView
+                android:id="@+id/follow_btn"
+                android:layout_width="170dp"
+                android:layout_height="25dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="28dp"
+                android:layout_marginBottom="31dp"
+                android:src="@drawable/follow_list" />
+
+            <ImageView
+                android:layout_width="107dp"
+                android:layout_height="37dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="40dp"
+                android:src="@drawable/follow_btn" />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycleViewSong"
+        android:layout_width="match_parent"
+        android:layout_height="280dp"
+        android:layout_below="@+id/song_card_view" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/recycleViewSong"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Albums"
+            android:textColor="@color/white"
+            android:textSize="18dp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycle_view_song_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+</RelativeLayout>

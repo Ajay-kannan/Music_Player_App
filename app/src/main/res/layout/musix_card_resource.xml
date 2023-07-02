@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="150dp"
+    android:layout_height="120dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_view_id"
+    app:cardCornerRadius="10dp"
+    android:clickable="true"
+    >
+
+    <RelativeLayout
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:background="#111536"
+        >
+
+        <ImageView
+            android:id="@+id/recycle_img"
+            android:layout_width="match_parent"
+            android:layout_height="88dp"
+            android:src="@drawable/music_band" />
+
+        <TextView
+            android:id="@+id/recycle_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/recycle_img"
+            android:layout_centerHorizontal="true"
+            android:text="hello"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:layout_marginRight="50dp"
+            />
+
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

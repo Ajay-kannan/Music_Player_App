@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:background="#1d1f3e"
+    >
+    <TextView
+        android:id="@+id/recycle_song_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1"
+        android:background="@drawable/border"
+        android:padding="10dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:textColor="@color/white"
+        />
+    
+    <ImageView
+        android:id="@+id/recycle_song_img"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_toRightOf="@+id/recycle_song_num"
+        android:background="@color/white"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        />
+
+    <TextView
+        android:id="@+id/recycle_song_title"
+        android:layout_width="220dp"
+        android:layout_height="25dp"
+        android:text="song name"
+        android:textColor="@color/white"
+        android:layout_toRightOf="@+id/recycle_song_img"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="18dp"
+        android:ellipsize="marquee"
+        />
+
+    <TextView
+        android:id="@+id/recycle_song_artists"
+        android:layout_width="220dp"
+        android:layout_height="17dp"
+        android:text="singer"
+        android:layout_below="@+id/recycle_song_title"
+        android:layout_toRightOf="@+id/recycle_song_img"
+        android:textColor="@color/white"
+        android:layout_marginLeft="10dp"
+        android:ellipsize="marquee"
+        android:textSize="12dp"
+        />
+    <TextView
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="30dp"
+        android:id="@+id/recycle_song_dur"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="-40dp"
+        android:paddingLeft="10dp"
+        android:text="0:00" />
+</RelativeLayout>

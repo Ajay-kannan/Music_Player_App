@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.HomeFragment"
+    android:background="#111536"
+    android:orientation="vertical"
+    >
+
+    <!-- TODO: Update blank fragment layout -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        app:cardBackgroundColor="@android:color/transparent"
+        app:cardElevation="4dp"
+        app:cardUseCompatPadding="true"
+        app:cardPreventCornerOverlap="false"
+        app:cardCornerRadius="20dp"
+        android:layout_marginTop="10dp"
+        >
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cardBackgroundColor="@android:color/transparent"
+            >
+
+           <RelativeLayout
+               android:layout_width="match_parent"
+               android:layout_height="match_parent">
+               <TextView
+                   android:id="@+id/title"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Featured Songs"
+                   android:textSize="20sp"
+                   tools:ignore="HardcodedText"
+                   android:layout_marginLeft="10dp"
+                   android:textColor="@color/white"
+                   />
+               <TextView
+                   android:id="@+id/song_desc"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="the song description"
+                   android:textColor="@color/white"
+                   android:layout_below="@+id/song_title"
+                   android:textSize="16dp"
+                   android:layout_marginLeft="10dp"
+                   />
+
+               <TextView
+                   android:id="@+id/song_title"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_marginBottom="13dp"
+                   android:text="the song title"
+                   android:layout_below="@+id/title"
+                   android:layout_marginTop="90dp"
+                   android:textColor="@color/white"
+                   android:textSize="18dp"
+                   android:layout_marginLeft="10dp"
+                   />
+           </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="New Songs"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycle_view_main"
+        android:layout_width="match_parent"
+        android:layout_height="200dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            app:cardCornerRadius="15dp"
+            android:backgroundTint="#1d1f3e"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add Your Artist"
+                android:layout_gravity="center_vertical"
+                android:textSize="16sp"
+                android:textColor="#ff7a8a"
+                android:textStyle="bold"
+                android:layout_marginLeft="5dp"
+                />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginRight="15dp"
+                android:background="#1d1f3e"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
+                android:src="@drawable/baseline_add_24"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:id="@+id/recycle_fav_artist"
+            />
+    </LinearLayout>
+
+</LinearLayout>
