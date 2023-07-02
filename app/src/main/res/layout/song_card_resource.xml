@@ -18,10 +18,10 @@
     
     <ImageView
         android:id="@+id/recycle_song_img"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_toRightOf="@+id/recycle_song_num"
-        android:background="@color/white"
+        android:src="@drawable/music_note"
         android:layout_centerVertical="true"
         android:layout_marginLeft="10dp"
         />
@@ -53,7 +53,7 @@
         />
     <TextView
         android:layout_alignParentEnd="true"
-        android:layout_centerVertical="true"
+        android:layout_marginTop="20dp"
         android:layout_marginRight="30dp"
         android:id="@+id/recycle_song_dur"
         android:layout_width="wrap_content"

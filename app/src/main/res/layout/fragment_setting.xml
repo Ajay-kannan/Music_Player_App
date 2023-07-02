@@ -3,23 +3,246 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.SettingFragment"
-    android:orientation="vertical"
-    >
+    android:background="#111536"
+    android:orientation="vertical">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Home page"
-        />
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="200dp"
+       android:orientation="vertical"
+       android:background="#1d1f3e"
+       >
+       <androidx.cardview.widget.CardView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           app:cardCornerRadius="50dp"
+           android:elevation="10dp"
+           android:layout_marginTop="30dp"
+           android:layout_marginLeft="130dp"
+           >
 
-    <Button
-        android:id="@+id/uploadBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="upload"
-        />
+           <ImageView
+               android:layout_width="100dp"
+               android:layout_height="100dp"
+               android:src="@drawable/music_band"
+               android:scaleType="centerCrop"
+               android:background="@color/white"
+               />
 
+       </androidx.cardview.widget.CardView>
+       <TextView
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="User Name"
+           android:textAlignment="center"
+           android:textSize="20dp"
+           android:textColor="#FF7A8A"
+           android:layout_marginTop="10dp"
+           />
+   </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/about_edit"
+            android:clickable="true"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            app:cardCornerRadius="15dp"
+            android:backgroundTint="#1d1f3e"
+            android:layout_marginTop="20dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Edit"
+                android:layout_gravity="center_vertical"
+                android:textSize="16sp"
+                android:textColor="#ff7a8a"
+                android:textStyle="bold"
+                android:layout_marginLeft="20dp"
+                />
+
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginRight="15dp"
+                android:background="#1d1f3e"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
+                android:src="@drawable/baseline_edit_24"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            app:cardCornerRadius="15dp"
+            android:backgroundTint="#1d1f3e"
+            android:layout_marginTop="20dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Share"
+                android:layout_gravity="center_vertical"
+                android:textSize="16sp"
+                android:textColor="#ff7a8a"
+                android:textStyle="bold"
+                android:layout_marginLeft="20dp"
+                />
+
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginRight="15dp"
+                android:background="#1d1f3e"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
+                android:src="@drawable/baseline_share_24"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/uploadBtn"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            app:cardCornerRadius="15dp"
+            android:backgroundTint="#1d1f3e"
+            android:layout_marginTop="20dp"
+            android:clickable="true"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add Your Artist"
+                android:layout_gravity="center_vertical"
+                android:textSize="16sp"
+                android:textColor="#ff7a8a"
+                android:textStyle="bold"
+                android:layout_marginLeft="20dp"
+                />
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginRight="15dp"
+                android:background="#1d1f3e"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
+                android:src="@drawable/baseline_add_24"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            app:cardCornerRadius="15dp"
+            android:backgroundTint="#1d1f3e"
+            android:layout_marginTop="20dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Log Out"
+                android:layout_gravity="center_vertical"
+                android:textSize="16sp"
+                android:textColor="#ff7a8a"
+                android:textStyle="bold"
+                android:layout_marginLeft="20dp"
+                />
+
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginRight="15dp"
+                android:background="#1d1f3e"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
+                android:src="@drawable/baseline_logout_24"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            app:cardCornerRadius="15dp"
+            android:backgroundTint="#1d1f3e"
+            android:layout_marginTop="20dp"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Privacy Policy"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Important for both of us"
+                android:textSize="16sp"
+                android:textColor="#5a5a5a"
+                android:textStyle="bold"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="35dp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Terms and Conditions"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="60dp"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="All the stuff you need to knows"
+                android:textSize="16sp"
+                android:textColor="#5a5a5a"
+                android:textStyle="bold"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="85dp"
+                />
+
+        </androidx.cardview.widget.CardView>
+
+
+    </LinearLayout>
 
 </LinearLayout>

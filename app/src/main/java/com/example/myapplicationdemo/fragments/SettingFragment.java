@@ -3,6 +3,7 @@ package com.example.myapplicationdemo.fragments;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -60,7 +61,7 @@ public class SettingFragment extends Fragment {
         }
     }
 
-    Button uploadBtn;
+    CardView uploadBtn;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

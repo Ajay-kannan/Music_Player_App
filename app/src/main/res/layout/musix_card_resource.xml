@@ -1,40 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="150dp"
     android:layout_height="120dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/card_view_id"
-    app:cardCornerRadius="10dp"
     android:clickable="true"
+    android:background="#111536"
+
     >
 
-    <RelativeLayout
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:background="#111536"
+    <androidx.cardview.widget.CardView
+        android:layout_width="140dp"
+        android:layout_height="match_parent"
+        android:backgroundTint="#111536"
+        app:cardCornerRadius="10dp"
+
         >
 
         <ImageView
             android:id="@+id/recycle_img"
-            android:layout_width="match_parent"
+            android:layout_width="140dp"
             android:layout_height="88dp"
-            android:src="@drawable/music_band" />
+            android:src="@drawable/music_band"
+            android:background="#111536"
+            android:paddingRight="5dp"
+            android:paddingLeft="5dp"
+            />
 
         <TextView
             android:id="@+id/recycle_name"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/recycle_img"
-            android:layout_centerHorizontal="true"
+            android:layout_marginTop="83dp"
             android:text="hello"
-            android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="20dp"
-            android:layout_marginRight="50dp"
+            android:textAlignment="center"
+            android:paddingRight="5dp"
+            android:paddingLeft="5dp"
             />
 
+    </androidx.cardview.widget.CardView>
 
-    </RelativeLayout>
-
-</androidx.cardview.widget.CardView>
+</RelativeLayout>

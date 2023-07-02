@@ -40,7 +40,8 @@ public class MusicPlayerActivity extends AppCompatActivity {
 
     NotificationManager notificationManager;
     GetNotificationData getNotificationData;
-//    int x = 1;
+    int x = 1;
+    ImageView musicIcon;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +54,7 @@ public class MusicPlayerActivity extends AppCompatActivity {
         pausePlay = findViewById(R.id.pause_play);
         nextBtn = findViewById(R.id.next);
         previousBtn = findViewById(R.id.previous);
+        musicIcon = findViewById(R.id.music_icon);
         title.setSelected(true);
         songsList =(ArrayList<GetSongs>) getIntent().getSerializableExtra("LIST");
         setResourcesMusic();
@@ -66,11 +68,11 @@ public class MusicPlayerActivity extends AppCompatActivity {
                     if (mediaPlayer.isPlaying())
                     {
                         pausePlay.setImageResource(R.drawable.baseline_pause_circle_outline_24);
-                        // musicIcon.setRotation(x++);
+                         musicIcon.setRotation(x++);
                     }
                     else{
                         pausePlay.setImageResource(R.drawable.baseline_play_circle_outline_24);
-                        // musicIcon.setRotation(0);
+                         musicIcon.setRotation(0);
                     }
                 }
                 new Handler().postDelayed(this,100);
