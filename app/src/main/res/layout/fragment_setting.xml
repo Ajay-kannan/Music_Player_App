@@ -22,9 +22,11 @@
            android:elevation="10dp"
            android:layout_marginTop="30dp"
            android:layout_marginLeft="130dp"
+           android:background="#1d1f3e"
            >
 
            <ImageView
+                android:id="@+id/user_image"
                android:layout_width="100dp"
                android:layout_height="100dp"
                android:src="@drawable/music_band"
@@ -34,6 +36,7 @@
 
        </androidx.cardview.widget.CardView>
        <TextView
+           android:id="@+id/user_name"
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
            android:text="User Name"

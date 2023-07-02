@@ -22,7 +22,7 @@
         android:theme="@style/Theme.MyApplicationdemo"
         tools:targetApi="31">
         <activity
-            android:name=".Edit_User"
+            android:name=".EditUser"
             android:exported="false" />
         <activity
             android:name=".MusicPlayerActivity"
