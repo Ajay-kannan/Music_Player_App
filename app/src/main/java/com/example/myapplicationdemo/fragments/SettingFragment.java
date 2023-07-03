@@ -16,10 +16,12 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.myapplicationdemo.EditUser;
+import com.example.myapplicationdemo.Login;
 import com.example.myapplicationdemo.R;
 import com.example.myapplicationdemo.UploadSongs;
 import com.example.myapplicationdemo.model.DataClassEdit;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -75,8 +77,10 @@ public class SettingFragment extends Fragment {
 
     CardView uploadBtn;
     CardView editBtn;
+    CardView logOut;
     FirebaseAuth auth;
-    String username;
+
+    FirebaseUser username;
     DatabaseReference databaseReference;
     ValueEventListener eventListener;
     ImageView userImage;
@@ -89,9 +93,10 @@ public class SettingFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_setting, container, false);
         uploadBtn = view.findViewById(R.id.uploadBtn);
         editBtn = view.findViewById(R.id.about_edit);
-//        auth = FirebaseAuth.getInstance();
-//        username = auth.getCurrentUser();
-        username = "null";
+        logOut = view.findViewById(R.id.log_out);
+        auth = FirebaseAuth.getInstance();
+        username = auth.getCurrentUser();
+        Log.d("user", username.getEmail());
         userName = view.findViewById(R.id.user_name);
         userImage = view.findViewById(R.id.user_image);
         databaseReference = FirebaseDatabase.getInstance().getReference("users");
@@ -100,9 +105,10 @@ public class SettingFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot itemSnapShot : snapshot.getChildren()){
                     DataClassEdit dataClassEdit = itemSnapShot.getValue(DataClassEdit.class);
-                    if(username == dataClassEdit.getEmail())
+                    if(username.getEmail().equals(dataClassEdit.getEmail()))
                     {
-                        originalData = dataClassEdit;
+                            originalData = dataClassEdit;
+                            originalData.setKey(itemSnapShot.getKey());
                     }
                 }
                 if(originalData == null)
@@ -129,6 +135,15 @@ public class SettingFragment extends Fragment {
             }
         });
 
+        logOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(getContext(), Login.class);
+                startActivity(intent);
+            }
+        });
+
         editBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -138,13 +153,14 @@ public class SettingFragment extends Fragment {
                     intent.putExtra("email","null");
                     intent.putExtra("Image","null");
                     intent.putExtra("Name","null");
+                    intent.putExtra("Key", "null");
                 }
                 else {
                     intent.putExtra("email",originalData.getEmail());
                     intent.putExtra("Image",originalData.getDataImage());
                     intent.putExtra("Name",originalData.getDataName());
+                    intent.putExtra("Key",originalData.getKey());
                 }
-                intent.putExtra("Key", "key");
                 getContext().startActivity(intent);
             }
         });

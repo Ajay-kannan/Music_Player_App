@@ -24,6 +24,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -41,6 +43,8 @@ public class EditUser extends AppCompatActivity {
     Uri uri;
     DatabaseReference databaseReference;
     StorageReference storageReference;
+    FirebaseAuth auth;
+    FirebaseUser username;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,7 +52,8 @@ public class EditUser extends AppCompatActivity {
         uploadImage = findViewById(R.id.uploadImage);
         uploadName = findViewById(R.id.uploadTopic);
         saveButton = findViewById(R.id.saveButton);
-
+        auth = FirebaseAuth.getInstance();
+        username = auth.getCurrentUser();
         ActivityResultLauncher<Intent> activityResultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
             @Override
             public void onActivityResult(ActivityResult result) {
@@ -65,14 +70,13 @@ public class EditUser extends AppCompatActivity {
         });
 
         Bundle bundle = getIntent().getExtras();
-        Log.d("bundle",bundle.toString());
         if (bundle != null){
             email = bundle.getString("email");
             key = bundle.getString("Key");
             oldImageURL = bundle.getString("Image");
             name = bundle.getString("Name");
         }
-
+        Log.d("budle", bundle.getString("Key"));
         uploadImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -99,7 +103,13 @@ public class EditUser extends AppCompatActivity {
                 while (! uriTask.isComplete());
                 Uri urlImage = uriTask.getResult();
                 imageURL = urlImage.toString();
-                updateData();
+                if(key.equals("null")){
+                    createData();
+                }
+                else {
+                    updateData();
+                }
+                finish();
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -109,31 +119,31 @@ public class EditUser extends AppCompatActivity {
         });
     }
 
+    public void createData()
+    {
+        title = uploadName.getText().toString().trim();
+        DataClassEdit dataClassEdit = new DataClassEdit(title,imageURL,username.getEmail());
+        FirebaseDatabase.getInstance().getReference("users").child(uri.getLastPathSegment())
+                .setValue(dataClassEdit).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()){
+                            Toast.makeText(getApplicationContext(), "Saved", Toast.LENGTH_SHORT).show();
+                            finish();
+                        }
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(getApplicationContext(), e.getMessage().toString(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
     private void updateData() {
         title = uploadName.getText().toString().trim();
-        DataClassEdit dataClassEdit = new DataClassEdit(title,imageURL,email);
-
-        if(name == "null" || oldImageURL == "null")
-        {
-            Log.d("null part", "ok");
-            FirebaseDatabase.getInstance().getReference("Users")
-                    .setValue(dataClassEdit).addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            if (task.isSuccessful()){
-                                Toast.makeText(getApplicationContext(), "Saved", Toast.LENGTH_SHORT).show();
-                                finish();
-                            }
-                        }
-                    }).addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(getApplicationContext(), e.getMessage().toString(), Toast.LENGTH_SHORT).show();
-                        }
-                    });
-            return;
-        }
-
+        DataClassEdit dataClassEdit = new DataClassEdit(title,imageURL,username.getEmail());
+        databaseReference = FirebaseDatabase.getInstance().getReference("users").child(key);
         databaseReference.setValue(dataClassEdit).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
@@ -151,6 +161,5 @@ public class EditUser extends AppCompatActivity {
                 Toast.makeText(EditUser.this, e.getMessage().toString(), Toast.LENGTH_SHORT).show();
             }
         });
-
     }
 }

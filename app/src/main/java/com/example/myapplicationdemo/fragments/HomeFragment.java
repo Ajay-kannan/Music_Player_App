@@ -54,7 +54,7 @@ public class HomeFragment extends Fragment {
         cardView = view.findViewById(R.id.cardView);
         cardView.setBackgroundResource(R.drawable.music_band);
         recyclerView = view.findViewById(R.id.recycle_view_main);
-        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 3));
+        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
         progressDialog = new ProgressDialog(getContext());
         list = new ArrayList<>();
         progressDialog.setMessage("please wait...");

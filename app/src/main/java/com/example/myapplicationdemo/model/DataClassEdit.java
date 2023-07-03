@@ -47,4 +47,14 @@ public class DataClassEdit {
     public void setDataImage(String dataImage) {
         this.dataImage = dataImage;
     }
+
+    @Override
+    public String toString() {
+        return "DataClassEdit{" +
+                "dataName='" + dataName + '\'' +
+                ", key='" + key + '\'' +
+                ", dataImage='" + dataImage + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
 }
