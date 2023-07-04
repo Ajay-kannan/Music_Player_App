@@ -27,6 +27,7 @@ import android.webkit.MimeTypeMap;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
@@ -60,6 +61,8 @@ public class UploadSongs extends AppCompatActivity implements  AdapterView.OnIte
     TextView title,artist, durations,album,dataa;
     ImageView album_art ;
     Button uploadSongsbtn;
+    EditText artistName;
+    String artist_name;
     String[] musicType = {"Classical","Theme Song","Love Song","Hip-Hop and Rap","Folk","Indie Song","sad Song"};
 
     @Override
@@ -76,6 +79,7 @@ public class UploadSongs extends AppCompatActivity implements  AdapterView.OnIte
         dataa = findViewById(R.id.dataa);
         album_art = findViewById(R.id.imageView);
         uploadSongsbtn = findViewById(R.id.openAudioFiles);
+        artistName = findViewById(R.id.artist_name);
         FirebaseDatabase database = FirebaseDatabase.getInstance();
 
         metadataRetriever = new MediaMetadataRetriever();
@@ -92,9 +96,6 @@ public class UploadSongs extends AppCompatActivity implements  AdapterView.OnIte
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         spinner.setAdapter(dataAdapter);
-
-
-
 
     }
 
@@ -117,7 +118,6 @@ public class UploadSongs extends AppCompatActivity implements  AdapterView.OnIte
             dataa.setText(metadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_GENRE));
             durations.setText(metadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION));
             title.setText(metadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE));
-
             artist1 = metadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_ARTIST);
             title1 = metadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE);
             durations1 = metadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION);
@@ -136,7 +136,6 @@ public class UploadSongs extends AppCompatActivity implements  AdapterView.OnIte
          startActivityForResult(Intent.createChooser(i, "Select Audio"), 101);
      }
 
-
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             songCategory = parent.getItemAtPosition(position).toString();
@@ -147,7 +146,6 @@ public class UploadSongs extends AppCompatActivity implements  AdapterView.OnIte
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
-
 
     @SuppressLint("Range")
     private String getFileName(Uri uri)
@@ -202,6 +200,7 @@ public class UploadSongs extends AppCompatActivity implements  AdapterView.OnIte
     {
         if (audioUri != null)
         {
+            artist_name = artistName.getText().toString().trim();
             Toast.makeText(this, "uploads please wait!", Toast.LENGTH_SHORT).show();
             progressBar.setVisibility(View.VISIBLE);
             final StorageReference storageReference = mStorageref.child(System.currentTimeMillis() + "."+getfileextension(audioUri));
@@ -211,7 +210,7 @@ public class UploadSongs extends AppCompatActivity implements  AdapterView.OnIte
                     storageReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                         @Override
                         public void onSuccess(Uri uri) {
-                            UploadSong uploadSong = new UploadSong(songCategory,title1,artist1,album_art1,durations1,uri.toString());
+                            UploadSong uploadSong = new UploadSong(songCategory,title1,artist1,album_art1,durations1,uri.toString(),artist_name);
                             String uploadId = referenceSongs.push().getKey();
                             referenceSongs.child(uploadId).setValue(uploadSong);
                         }

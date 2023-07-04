@@ -21,11 +21,9 @@ public class ExoSongAdapter extends RecyclerView.Adapter<SongsAdapterViewHolder>
     Context context;
     List<GetSongs> arrayListSongs;
     private int selectPosition;
-    int num = 1;
     public ExoSongAdapter(Context context, List<GetSongs> arrayListSongs) {
         this.context = context;
         this.arrayListSongs = arrayListSongs;
-        num =1;
     }
 
     @NonNull
@@ -45,7 +43,7 @@ public class ExoSongAdapter extends RecyclerView.Adapter<SongsAdapterViewHolder>
         holder.song_artist.setText(getSongs.getArtist());
         String duration = Utility.convertDuration(Long.parseLong(getSongs.getSongDuration()));
         holder.song_duration.setText(duration);
-        holder.song_num.setText(num+"");
+        holder.song_num.setText((pos+1)+"");
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,7 +55,6 @@ public class ExoSongAdapter extends RecyclerView.Adapter<SongsAdapterViewHolder>
                 context.startActivity(intent);
             }
         });
-        num += 1;
     }
     @Override
     public int getItemCount() {

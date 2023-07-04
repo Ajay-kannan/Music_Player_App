@@ -1,9 +1,9 @@
 package com.example.myapplicationdemo.model;
 
 public class UploadSong {
-    public String songsCategory, songTitle, artist, album_art, songDuration , songLink, mKey;
+    public String songsCategory, songTitle, artist, album_art, songDuration , songLink, mKey,artistName;
 
-    public UploadSong(String songsCategory, String songTitle, String artist, String album_art, String songDuration, String songLink) {
+    public UploadSong(String songsCategory, String songTitle, String artist, String album_art, String songDuration, String songLink,String artistName) {
        if (songTitle.trim().equals(""))
        {
            songTitle = "No Title";
@@ -15,6 +15,7 @@ public class UploadSong {
         this.album_art = album_art;
         this.songDuration = songDuration;
         this.songLink = songLink;
+        this.artistName = artistName;
     }
 
     public UploadSong() {
@@ -76,6 +77,10 @@ public class UploadSong {
         this.mKey = mKey;
     }
 
-
-
+    public String getArtistName() {
+        return artistName;
+    }
+    public void setArtistName(String artistName) {
+        this.artistName = artistName;
+    }
 }

@@ -52,8 +52,8 @@ public class SongsList extends AppCompatActivity  {
                 {
                     GetSongs getSongs = dss.getValue(GetSongs.class);
                     getSongs.setmKey(dss.getKey());
-                    final String s = getIntent().getExtras().getString("songsCategory");
-                    if (s.equals(getSongs.getSongsCategory()))
+                    final String s = getIntent().getExtras().getString("songTitle");
+                    if (s.equals(getSongs.getArtistName()))
                     {
                         mUpload.add(getSongs);
                     }
@@ -64,7 +64,6 @@ public class SongsList extends AppCompatActivity  {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
             }
         });
         final String titleStr = getIntent().getExtras().getString("songTitle");

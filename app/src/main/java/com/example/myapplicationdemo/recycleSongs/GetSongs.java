@@ -7,7 +7,7 @@ import com.example.myapplicationdemo.R;
 import java.io.Serializable;
 
 public class GetSongs implements Serializable {
-    public String songsCategory, songTitle, artist, album_art, songDuration , songLink, mKey;
+    public String songsCategory, songTitle, artist, album_art, songDuration , songLink, mKey,artistName;
     public int image;
     public GetSongs(String songTitle,String songDuration, String songLink) {
         this.songTitle = songTitle;
@@ -21,7 +21,7 @@ public class GetSongs implements Serializable {
         this.image = image;
     }
 
-    public GetSongs(String songsCategory, @NonNull String songTitle, String artist, String album_art, String songDuration, String songLink) {
+    public GetSongs(String songsCategory, @NonNull String songTitle, String artist, String album_art, String songDuration, String songLink, String artistName) {
         if (songTitle.trim().equals(""))
         {
             songTitle = "No Title";
@@ -32,6 +32,7 @@ public class GetSongs implements Serializable {
         this.album_art = album_art;
         this.songDuration = songDuration;
         this.songLink = songLink;
+        this.artistName = artistName;
     }
 
     public int getImage() {
@@ -91,6 +92,14 @@ public class GetSongs implements Serializable {
 
     public void setSongLink(String songLink) {
         this.songLink = songLink;
+    }
+
+    public String getArtistName() {
+        return artistName;
+    }
+
+    public void setArtistName(String artistName) {
+        this.artistName = artistName;
     }
 
     public String getmKey() {

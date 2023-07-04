@@ -8,6 +8,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
@@ -17,6 +18,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.myapplicationdemo.notification.CreateNotification;
 import com.example.myapplicationdemo.notification.GetNotificationData;
@@ -69,11 +71,16 @@ public class MusicPlayerActivity extends AppCompatActivity {
                     {
                         pausePlay.setImageResource(R.drawable.baseline_pause_circle_outline_24);
                          musicIcon.setRotation(x++);
+
                     }
                     else{
                         pausePlay.setImageResource(R.drawable.baseline_play_circle_outline_24);
                          musicIcon.setRotation(0);
+                        if ((mediaPlayer.getDuration()-1000) < mediaPlayer.getCurrentPosition()){
+                            playNextSong();
+                        }
                     }
+
                 }
                 new Handler().postDelayed(this,100);
             }
@@ -149,6 +156,7 @@ public class MusicPlayerActivity extends AppCompatActivity {
 
     private void playMusic(){
         mediaPlayer.reset();
+        mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
         try {
             mediaPlayer.setDataSource(currentSong.getSongLink());
             mediaPlayer.prepare();
@@ -156,9 +164,8 @@ public class MusicPlayerActivity extends AppCompatActivity {
             seekBar.setProgress(0);
             seekBar.setMax(mediaPlayer.getDuration());
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            Toast.makeText(this, "Please wait", Toast.LENGTH_SHORT).show();
         }
-
     }
 
     private void playNextSong(){
