@@ -6,34 +6,108 @@
     android:layout_height="match_parent"
     tools:context=".Register"
     android:orientation="vertical"
-    android:gravity="center"
-    android:layout_margin="30dp"
+    android:background="#F4E1E7"
     >
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/register"
-        android:textSize="30sp"
+        android:text="Welcome Back!"
+        android:textSize="32sp"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="30dp"
+        android:textColor="@color/black"
         />
-    <com.google.android.material.textfield.TextInputEditText
-        android:layout_width="match_parent"
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/email"
-        android:hint="@string/email"
+        android:text="Create your account "
+        android:textSize="18sp"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="30dp"
+        android:textColor="@color/black"
+
         />
-    <com.google.android.material.textfield.TextInputEditText
+
+
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/password"
-        android:hint="@string/password"
-        />
+        android:layout_height="50dp"
+        app:cardCornerRadius="10dp"
+        android:backgroundTint="#8e91b5"
+        android:layout_marginTop="80dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        >
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            android:background="#8e91b5"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:src="@drawable/baseline_person_24"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:id="@+id/email"
+            android:hint="email"
+            android:layout_marginLeft="45dp"
+            android:textColorHint="@color/white"
+            android:background="@null"
+            />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:cardCornerRadius="10dp"
+        android:backgroundTint="#8e91b5"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        >
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            android:background="#8e91b5"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:src="@drawable/baseline_lock_24"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:id="@+id/password"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:layout_marginLeft="45dp"
+            android:textColorHint="@color/white"
+            android:background="@null"
+            />
+
+
+    </androidx.cardview.widget.CardView>
+
+
 
     <Button
         android:id="@+id/btn_register"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/register"
+        android:layout_marginTop="25dp"
+        android:layout_gravity="center"
+        android:backgroundTint="#353a48"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
         />
 
     <TextView
@@ -41,8 +115,12 @@
         android:layout_marginTop="50dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Go to Login"
+        android:text="Already have an Account? Login"
         android:textStyle="bold"
+        android:layout_gravity="center"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+
         />
 
 </LinearLayout>

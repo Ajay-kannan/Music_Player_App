@@ -27,11 +27,11 @@ public class CreateNotification {
 
     public static Notification notification;
 
-    public static void createNotification(Context context, GetNotificationData track, int playbutton, int pos, int size) {
+    public static void createNotification(Context context, String track, int playbutton, int pos, int size) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(context);
             MediaSessionCompat mediaSessionCompat = new MediaSessionCompat(context, "tag");
-            Bitmap icon = BitmapFactory.decodeResource(context.getResources(), track.getImage());
+            Bitmap icon = BitmapFactory.decodeResource(context.getResources(), R.drawable.music_note);
 
             PendingIntent pendingIntentPrevious;
             int drw_previous;
@@ -70,7 +70,7 @@ public class CreateNotification {
 
             notification = new NotificationCompat.Builder(context, CHANNEL_ID)
                     .setSmallIcon(R.drawable.ic_music_note_24)
-                    .setContentTitle(track.getSongTitle())
+                    .setContentTitle(track)
                     .setLargeIcon(icon)
                     .setOnlyAlertOnce(true)
                     .setShowWhen(false)

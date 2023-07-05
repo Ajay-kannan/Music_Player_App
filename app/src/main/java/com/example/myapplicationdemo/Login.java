@@ -72,7 +72,7 @@ public class Login extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Toast.makeText(getApplicationContext() , "Login successfully ", Toast.LENGTH_LONG).show();
 
-                            Intent intent = new Intent(getApplicationContext() , MainActivity.class);
+                            Intent intent = new Intent(getApplicationContext() , OtpLogin.class);
                             startActivity(intent);
                             finish();
 

@@ -110,7 +110,7 @@ public class MusicPlayerActivity extends AppCompatActivity {
             registerReceiver(broadcastReceiver, new IntentFilter("TRACKS_TRACKS"));
             startService(new Intent(getBaseContext(), OnClearFromRecentService.class));
         }
-        CreateNotification.createNotification(MusicPlayerActivity.this,getNotificationData,R.drawable.baseline_pause_24,MyMediaPlayer.currentIndex,songsList.size()-1);
+        CreateNotification.createNotification(MusicPlayerActivity.this,currentSong.getSongTitle(),R.drawable.baseline_pause_24,MyMediaPlayer.currentIndex,songsList.size()-1);
     }
 
     private void createChannel() {
@@ -130,7 +130,6 @@ public class MusicPlayerActivity extends AppCompatActivity {
         @Override
         public void onReceive(Context context, Intent intent) {
             String action = intent.getExtras().getString("actionname");
-            Log.d("action", "came");
             switch (action){
 
                 case CreateNotification.ACTION_PREVIOUS:
@@ -139,11 +138,11 @@ public class MusicPlayerActivity extends AppCompatActivity {
                 case CreateNotification.ACTION_PLAY:
 
                     if(mediaPlayer.isPlaying()){
-                        CreateNotification.createNotification(MusicPlayerActivity.this,getNotificationData,R.drawable.baseline_pause_24,MyMediaPlayer.currentIndex,songsList.size()-1);
+                        CreateNotification.createNotification(MusicPlayerActivity.this,currentSong.getSongTitle(),R.drawable.baseline_play_arrow_24,MyMediaPlayer.currentIndex,songsList.size()-1);
                         mediaPlayer.pause();
                     }
                     else{
-                        CreateNotification.createNotification(MusicPlayerActivity.this,getNotificationData,R.drawable.baseline_play_arrow_24,MyMediaPlayer.currentIndex,songsList.size()-1);
+                        CreateNotification.createNotification(MusicPlayerActivity.this,currentSong.getSongTitle(),R.drawable.baseline_pause_24,MyMediaPlayer.currentIndex,songsList.size()-1);
                         mediaPlayer.start();
                     }
                     break;
@@ -175,7 +174,7 @@ public class MusicPlayerActivity extends AppCompatActivity {
         MyMediaPlayer.currentIndex += 1;
         mediaPlayer.reset();
         setResourcesMusic();
-        CreateNotification.createNotification(MusicPlayerActivity.this,getNotificationData,R.drawable.baseline_pause_24,MyMediaPlayer.currentIndex,songsList.size()-1);
+        CreateNotification.createNotification(MusicPlayerActivity.this,currentSong.getSongTitle(),R.drawable.baseline_pause_24,MyMediaPlayer.currentIndex,songsList.size()-1);
     }
     private void playPreviousSong()
     {
@@ -185,16 +184,16 @@ public class MusicPlayerActivity extends AppCompatActivity {
         MyMediaPlayer.currentIndex -= 1;
         mediaPlayer.reset();
         setResourcesMusic();
-        CreateNotification.createNotification(MusicPlayerActivity.this,getNotificationData,R.drawable.baseline_pause_24,MyMediaPlayer.currentIndex,songsList.size()-1);
+        CreateNotification.createNotification(MusicPlayerActivity.this,currentSong.getSongTitle(),R.drawable.baseline_pause_24,MyMediaPlayer.currentIndex,songsList.size()-1);
     }
     private void pausePlay()
     {
         if(mediaPlayer.isPlaying()){
-            CreateNotification.createNotification(MusicPlayerActivity.this,getNotificationData,R.drawable.baseline_pause_24,MyMediaPlayer.currentIndex,songsList.size()-1);
+            CreateNotification.createNotification(MusicPlayerActivity.this,currentSong.getSongTitle(),R.drawable.baseline_play_arrow_24,MyMediaPlayer.currentIndex,songsList.size()-1);
             mediaPlayer.pause();
         }
         else{
-            CreateNotification.createNotification(MusicPlayerActivity.this,getNotificationData,R.drawable.baseline_play_arrow_24,MyMediaPlayer.currentIndex,songsList.size()-1);
+            CreateNotification.createNotification(MusicPlayerActivity.this,currentSong.getSongTitle(),R.drawable.baseline_pause_24,MyMediaPlayer.currentIndex,songsList.size()-1);
             mediaPlayer.start();
         }
     }
@@ -211,14 +210,14 @@ public class MusicPlayerActivity extends AppCompatActivity {
         playMusic();
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
-            notificationManager.cancelAll();
-        }
-        unregisterReceiver(broadcastReceiver);
-    }
+//    @Override
+//    protected void onDestroy() {
+//        super.onDestroy();
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+//            notificationManager.cancelAll();
+//        }
+//        unregisterReceiver(broadcastReceiver);
+//    }
 
     //    public static String covertToMMSS(String duration)
 //    {
