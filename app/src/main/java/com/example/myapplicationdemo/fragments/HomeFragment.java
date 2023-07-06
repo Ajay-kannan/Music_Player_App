@@ -33,7 +33,6 @@ public class HomeFragment extends Fragment {
     RecyclerView recyclerView;
     List <ItemsList> list;
     DatabaseReference mDatabase;
-
     ValueEventListener eventListener;
     ProgressDialog progressDialog;
     CardView cardView;
@@ -108,4 +107,6 @@ public class HomeFragment extends Fragment {
 
         return view;
     }
+
+
 }

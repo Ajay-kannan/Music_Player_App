@@ -1,51 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="20dp"
+    android:background="#F4E1E7"
+    tools:context=".OtpLogin">
 
-    <!--Edittext for getting users phone number-->
+    <!-- Title -->
+    <TextView
+        android:id="@+id/idTxtTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="OTP Verification"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#333333"
+        android:gravity="center"
+        android:layout_marginBottom="30dp"/>
+
+    <!-- Caption for phone number -->
+    <TextView
+        android:id="@+id/idTxtPhoneNumberCaption"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enter your phone number :"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:layout_marginBottom="10dp"/>
+
+    <!-- Edittext for getting user's phone number -->
     <EditText
         android:id="@+id/idEdtPhoneNumber"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="10dp"
-        android:hint="Enter your phone"
-        android:importantForAutofill="no"
-        android:inputType="phone" />
+        android:layout_height="50dp"
+        android:hint="  Phone Number"
+        android:textSize="16sp"
+        android:textColorHint="#666666"
+        android:background="@drawable/edittext_bg"
+        android:textColor="#333333"
+        android:layout_marginBottom="20dp"/>
 
-    <!--Button for getting OTP-->
+    <!-- Caption for OTP -->
+    <TextView
+        android:id="@+id/idTxtOtpCaption"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enter the OTP :"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:layout_marginBottom="10dp"/>
+
+    <!-- Edittext for getting OTP from user -->
+    <EditText
+        android:id="@+id/idEdtOtp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint=" OTP"
+        android:textSize="16sp"
+        android:textColorHint="#666666"
+        android:background="@drawable/edittext_bg"
+        android:textColor="#333333"
+        android:layout_marginBottom="20dp"/>
+
+    <!-- Button for getting OTP -->
     <Button
         android:id="@+id/idBtnGetOtp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/idEdtPhoneNumber"
-        android:layout_margin="10dp"
         android:text="Get OTP"
-        android:textAllCaps="false" />
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:background="#2196F3"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="20dp"/>
 
-    <!--Edittext for getting otp from user-->
-    <EditText
-        android:id="@+id/idEdtOtp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/idBtnGetOtp"
-        android:layout_margin="10dp"
-        android:hint="Enter OTP"
-        android:importantForAutofill="no"
-        android:inputType="phone" />
-
-    <!--button for verifying user OTP-->
+    <!-- Button for verifying user OTP -->
     <Button
         android:id="@+id/idBtnVerify"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/idEdtOtp"
-        android:layout_margin="10dp"
         android:text="Verify OTP"
-        android:textAllCaps="false" />
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:background="#4CAF50"
+        android:textColor="#FFFFFF"/>
 
-</RelativeLayout>
+</LinearLayout>

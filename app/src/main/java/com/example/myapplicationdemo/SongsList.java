@@ -11,6 +11,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.myapplicationdemo.recycleCard.ItemsList;
+import com.example.myapplicationdemo.recycleCard.MyAdapterClassRecycleCard;
 import com.example.myapplicationdemo.recycleSongs.ExoSongAdapter;
 import com.example.myapplicationdemo.recycleSongs.GetSongs;
 import com.google.firebase.database.DataSnapshot;
@@ -28,6 +30,11 @@ public class SongsList extends AppCompatActivity  {
     ExoSongAdapter exoSongAdapter;
     DatabaseReference databaseReference;
     ValueEventListener valueEventListener;
+    DatabaseReference databaseReferenceOther;
+    ValueEventListener valueEventListenerOther;
+    RecyclerView recyclerViewOther;
+    List <ItemsList> list;
+    MyAdapterClassRecycleCard myAdapterClassRecycleCard;
     TextView songTitle;
     ImageView sondCardImage;
     @Override
@@ -42,8 +49,13 @@ public class SongsList extends AppCompatActivity  {
         mUpload = new ArrayList<>();
         recyclerView.setAdapter(exoSongAdapter);
         exoSongAdapter = new ExoSongAdapter(getApplicationContext(),mUpload);
-
         databaseReference = FirebaseDatabase.getInstance().getReference("songs");
+
+        recyclerViewOther = findViewById(R.id.recycle_view_song_list);
+        recyclerViewOther.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL ,false) );
+        list = new ArrayList<>();
+        databaseReferenceOther = FirebaseDatabase.getInstance().getReference("uploads");
+
         valueEventListener = databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -71,6 +83,27 @@ public class SongsList extends AppCompatActivity  {
         final String urlStr = getIntent().getExtras().getString("imageUrl");
         Glide.with(getApplicationContext()).load(urlStr).into(sondCardImage);
 
+        valueEventListenerOther = databaseReferenceOther.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                list.clear();
+                for(DataSnapshot itemSnapshot : snapshot.getChildren()){
+                    ItemsList itemsList = itemSnapshot.getValue(ItemsList.class);
+                    list.add(itemsList);
+                }
+                myAdapterClassRecycleCard = new MyAdapterClassRecycleCard(getBaseContext(), list);
+                recyclerViewOther.setAdapter(myAdapterClassRecycleCard);
+                myAdapterClassRecycleCard.notifyDataSetChanged();
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {}
+        });
+    }
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        databaseReference.removeEventListener(valueEventListener);
+        databaseReferenceOther.removeEventListener(valueEventListenerOther);
     }
 
 }

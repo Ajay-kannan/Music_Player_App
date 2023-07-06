@@ -43,6 +43,7 @@ public class MyAdapterClassRecycleCard extends RecyclerView.Adapter<CardItem> {
                @Override
                public void onClick(View v) {
                    Intent intent = new Intent(context, SongsList.class);
+                   intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                    intent.putExtra("songsCategory", itemsList.getSongsCategory());
                    intent.putExtra("songTitle",itemsList.getName());
                    intent.putExtra("imageUrl",itemsList.getUrl());
