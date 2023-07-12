@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/primary_color"
     tools:context=".UploadAlbumSongs">
 
     <LinearLayout
@@ -20,6 +21,9 @@
             android:text="Choose"
             android:layout_weight="1"
             android:id="@+id/buttonChoose"
+            android:background="#353a48"
+            android:textColor="@color/white"
+
             />
         <EditText
             android:layout_width="wrap_content"
@@ -27,6 +31,7 @@
             android:hint="Enter the name of album"
             android:id="@+id/edit_text"
             android:layout_weight="4"
+            android:textColorHint="#888888"
             />
     </LinearLayout>
 
@@ -43,26 +48,29 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="choose category"
-            android:textColor="#b0475e"
+            android:textColor="@color/black"
             android:textStyle="bold"
             android:layout_weight="1"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="40dp"
             android:textSize="16sp"
             android:layout_marginBottom="5dp"
             />
 
         <Spinner
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             android:id="@+id/spinner"
             android:layout_marginTop="10dp"
+            android:background="#353a48"
             />
 
         <ImageView
-            android:layout_width="300dp"
-            android:layout_height="300dp"
+            android:layout_width="230dp"
+            android:layout_height="230dp"
             android:id="@+id/imageView"
-            android:layout_marginTop="20dp" />
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            />
     </LinearLayout>
 
     <LinearLayout
@@ -77,8 +85,18 @@
     android:layout_weight="1"
     android:text="uploads"
     android:id="@+id/buttonupload"
+    android:background="#353a48"
     />
 
-
+        <Button
+            android:layout_marginBottom="100dp"
+            android:id="@+id/openimageuploadactivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Open Upload Songs to Playlist"
+            android:onClick="openAlbumUploadsActivity"
+            android:textColor="@color/white"
+            android:background="#353a48" />
     </LinearLayout>
 </RelativeLayout>

@@ -213,6 +213,7 @@ public class UploadSongs extends AppCompatActivity implements  AdapterView.OnIte
                             UploadSong uploadSong = new UploadSong(songCategory,title1,artist1,album_art1,durations1,uri.toString(),artist_name);
                             String uploadId = referenceSongs.push().getKey();
                             referenceSongs.child(uploadId).setValue(uploadSong);
+                            finish();
                         }
                     });
                 }
@@ -236,9 +237,5 @@ public class UploadSongs extends AppCompatActivity implements  AdapterView.OnIte
         return mimeTypeMap.getExtensionFromMimeType(contentResolver.getType(audioUri));
     }
 
-    public void openAlbumUploadsActivity(View v)
-    {
-        Intent i = new Intent(getApplicationContext(),UploadAlbumSongs.class);
-        startActivity(i);
-    }
+
 }

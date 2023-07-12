@@ -18,6 +18,7 @@ import com.bumptech.glide.Glide;
 import com.example.myapplicationdemo.EditUser;
 import com.example.myapplicationdemo.Login;
 import com.example.myapplicationdemo.R;
+import com.example.myapplicationdemo.UploadAlbumSongs;
 import com.example.myapplicationdemo.UploadSongs;
 import com.example.myapplicationdemo.model.DataClassEdit;
 import com.google.firebase.auth.FirebaseAuth;
@@ -130,7 +131,7 @@ public class SettingFragment extends Fragment {
         uploadBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getContext(), UploadSongs.class);
+                Intent i = new Intent(getContext(), UploadAlbumSongs.class);
                 startActivity(i);
             }
         });

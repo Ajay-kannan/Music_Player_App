@@ -1,6 +1,7 @@
 package com.example.myapplicationdemo.fragments;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -14,11 +15,15 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.example.myapplicationdemo.MyAdapterClass;
 import com.example.myapplicationdemo.R;
+import com.example.myapplicationdemo.UploadAlbumSongs;
+import com.example.myapplicationdemo.UploadSongs;
 import com.example.myapplicationdemo.recycleCard.ItemsList;
 import com.example.myapplicationdemo.recycleCard.MyAdapterClassRecycleCard;
+import com.google.android.play.core.integrity.v;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -37,6 +42,7 @@ public class HomeFragment extends Fragment {
     ProgressDialog progressDialog;
     CardView cardView;
     MyAdapterClassRecycleCard myAdapterClassRecycleCard;
+    CardView openAlbumUploadsActivity;
     public HomeFragment() {
     }
 
@@ -53,6 +59,7 @@ public class HomeFragment extends Fragment {
         cardView = view.findViewById(R.id.cardView);
         cardView.setBackgroundResource(R.drawable.music_band);
         recyclerView = view.findViewById(R.id.recycle_view_main);
+        openAlbumUploadsActivity = view.findViewById(R.id.openAlbumUploadsActivity);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
         progressDialog = new ProgressDialog(getContext());
         list = new ArrayList<>();
@@ -104,7 +111,13 @@ public class HomeFragment extends Fragment {
 //            }
 //        });
 
-
+        openAlbumUploadsActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getContext(), UploadAlbumSongs.class);
+                startActivity(i);
+            }
+        });
         return view;
     }
 

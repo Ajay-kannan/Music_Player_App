@@ -4,27 +4,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/primary_color"
     android:orientation="vertical"
-    tools:context=".UploadSongs">
+    tools:context=".UploadSongs"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    >
 
+    <!-- Choose Category -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="5dp"
-        android:text="Choose Category :"
-        android:textStyle="bold" />
+        android:text="Choose Category:"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        android:textColor="@color/secondary_color" />
 
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-    </Spinner>
+        android:layout_height="30dp"
+        android:background="#353a48"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+         />
 
+    <!-- Upload Song Button and File Selection -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white">
+        android:gravity="center_vertical">
 
         <Button
             android:id="@+id/openAudioFiles"
@@ -32,106 +43,124 @@
             android:layout_height="wrap_content"
             android:text="Upload Song"
             android:onClick="openAudioFiles"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:background="#353a48"
+            />
 
         <TextView
             android:id="@+id/textViewSongFileSelected"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:gravity="center"
-            android:text="No file Selected" />
+            android:gravity="center_vertical"
+            android:text="No file selected"
+            android:textColor="@color/black" />
 
     </LinearLayout>
 
     <ProgressBar
+        android:id="@+id/progressBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-        android:id="@+id/progressBar"
-        ></ProgressBar>
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:indeterminateTint="#00A3D4"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        />
 
+    <!-- Artist Name -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Artists Name"
+        android:text="Artist Name"
         android:textSize="16dp"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        />
+        android:textColor="@color/secondary_color"
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/artist_name"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
+        android:background="@color/white"
+        android:hint="Enter the Artist Name"
+        android:textColorHint="#888888"
         />
 
+    <!-- Upload Button -->
     <Button
+        android:id="@+id/buttonUpload"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/buttonUpload"
         android:layout_marginTop="10dp"
         android:text="Upload"
         android:textStyle="bold"
         android:onClick="uploadFileTofirebase"
-        />
+        android:textColor="@color/white"
+        android:background="#353a48" />
+
+    <!-- Song Information -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:background="@color/white"
+        android:layout_marginTop="20dp"
         >
 
         <TextView
+            android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="title"
-            android:id="@+id/title"
+            android:text="Title"
             android:textStyle="bold"
-            />
-        <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="title"
-        android:id="@+id/album"
-        android:textStyle="bold"
-        />
-        <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="title"
-        android:id="@+id/artist"
-        android:textStyle="bold"
-        />
+            android:textColor="@color/secondary_color" />
+
 
         <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="title"
-        android:id="@+id/dataa"
-        android:textStyle="bold"
-        />
-        <TextView
+            android:id="@+id/album"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="title"
-            android:id="@+id/duration"
+            android:text="Album"
             android:textStyle="bold"
-            />
-        <ImageView
+            android:textColor="@color/secondary_color" />
+
+        <TextView
+            android:id="@+id/artist"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Artist"
+            android:textStyle="bold"
+            android:textColor="@color/secondary_color" />
+
+        <TextView
+            android:id="@+id/dataa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Data"
+            android:textStyle="bold"
+            android:textColor="@color/secondary_color" />
+
+        <TextView
+            android:id="@+id/duration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Duration"
+            android:textStyle="bold"
+            android:textColor="@color/secondary_color" />
+
+        <ImageView
             android:id="@+id/imageView"
-            />
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+             />
+
     </LinearLayout>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/openimageuploadactivity"
-        android:onClick="openAlbumUploadsActivity"
-        android:text="open upload album activity"
-
-        />
+    <!-- Open Upload Album Activity Button -->
 
 
 </LinearLayout>

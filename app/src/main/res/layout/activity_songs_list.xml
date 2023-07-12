@@ -62,17 +62,20 @@
     <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
         android:layout_height="30dp"
-        android:backgroundTint="#1D1F4E"
+        android:backgroundTint="#111536"
         android:layout_above="@+id/other_albums_ly"
         app:cardElevation="50dp"
         app:cardCornerRadius="50dp"
         android:layout_centerHorizontal="true"
+        android:layout_marginBottom="5dp"
         >
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/baseline_arrow_downward_24"
             android:layout_margin="5dp"
+            android:minWidth="10dp"
+            android:minHeight="70dp"
             />
 
     </androidx.cardview.widget.CardView>
@@ -82,7 +85,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/recycleViewSong"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="#111536"
+        >
 
         <TextView
             android:layout_width="match_parent"
@@ -92,6 +97,8 @@
             android:textSize="18dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
+            android:layout_marginLeft="20dp"
+            android:textStyle="bold"
             />
 
         <androidx.recyclerview.widget.RecyclerView

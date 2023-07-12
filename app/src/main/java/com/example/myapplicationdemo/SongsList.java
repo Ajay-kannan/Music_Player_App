@@ -6,6 +6,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -78,7 +79,7 @@ public class SongsList extends AppCompatActivity  {
             public void onCancelled(@NonNull DatabaseError error) {
             }
         });
-        final String titleStr = getIntent().getExtras().getString("songTitle");
+        String titleStr = getIntent().getExtras().getString("songTitle");
         songTitle.setText(titleStr);
         final String urlStr = getIntent().getExtras().getString("imageUrl");
         Glide.with(getApplicationContext()).load(urlStr).into(sondCardImage);
@@ -89,7 +90,9 @@ public class SongsList extends AppCompatActivity  {
                 list.clear();
                 for(DataSnapshot itemSnapshot : snapshot.getChildren()){
                     ItemsList itemsList = itemSnapshot.getValue(ItemsList.class);
-                    list.add(itemsList);
+                    if (!itemsList.getName().equals(titleStr)) {
+                        list.add(itemsList);
+                    }
                 }
                 myAdapterClassRecycleCard = new MyAdapterClassRecycleCard(getBaseContext(), list);
                 recyclerViewOther.setAdapter(myAdapterClassRecycleCard);
@@ -99,11 +102,6 @@ public class SongsList extends AppCompatActivity  {
             public void onCancelled(@NonNull DatabaseError error) {}
         });
     }
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        databaseReference.removeEventListener(valueEventListener);
-        databaseReferenceOther.removeEventListener(valueEventListenerOther);
-    }
+
 
 }

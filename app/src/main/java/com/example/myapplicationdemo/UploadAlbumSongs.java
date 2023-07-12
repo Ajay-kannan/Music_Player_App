@@ -167,6 +167,11 @@ public class UploadAlbumSongs extends AppCompatActivity implements View.OnClickL
         }
     }
 
+    public void openAlbumUploadsActivity(View v)
+    {
+        Intent i = new Intent(getApplicationContext(),UploadSongs.class);
+        startActivity(i);
+    }
     public String getFileExtension(Uri uri)
     {
         ContentResolver cr = getContentResolver();
