@@ -79,6 +79,7 @@ public class SettingFragment extends Fragment {
     CardView uploadBtn;
     CardView editBtn;
     CardView logOut;
+    CardView shareApp;
     FirebaseAuth auth;
 
     FirebaseUser username;
@@ -95,6 +96,7 @@ public class SettingFragment extends Fragment {
         uploadBtn = view.findViewById(R.id.uploadBtn);
         editBtn = view.findViewById(R.id.about_edit);
         logOut = view.findViewById(R.id.log_out);
+        shareApp = view.findViewById(R.id.share_app);
         auth = FirebaseAuth.getInstance();
         username = auth.getCurrentUser();
         Log.d("user", username.getEmail());
@@ -142,6 +144,29 @@ public class SettingFragment extends Fragment {
                 FirebaseAuth.getInstance().signOut();
                 Intent intent = new Intent(getContext(), Login.class);
                 startActivity(intent);
+            }
+        });
+
+        shareApp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent sharingIntent = new Intent(Intent.ACTION_SEND);
+
+                // type of the content to be shared
+                sharingIntent.setType("text/plain");
+
+                // Body of the content
+                String shareBody = "Your Body Here";
+
+                // subject of the content. you can share anything
+                String shareSubject = "Your Subject Here";
+
+                // passing body of the content
+                sharingIntent.putExtra(Intent.EXTRA_TEXT, shareBody);
+
+                // passing subject of the content
+                sharingIntent.putExtra(Intent.EXTRA_SUBJECT, shareSubject);
+                startActivity(Intent.createChooser(sharingIntent, "Share using"));
             }
         });
 

@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -38,6 +39,7 @@ public class SongsList extends AppCompatActivity  {
     MyAdapterClassRecycleCard myAdapterClassRecycleCard;
     TextView songTitle;
     ImageView sondCardImage;
+    Button followBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +50,7 @@ public class SongsList extends AppCompatActivity  {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         mUpload = new ArrayList<>();
+        followBtn = findViewById(R.id.follow_btn);
         recyclerView.setAdapter(exoSongAdapter);
         exoSongAdapter = new ExoSongAdapter(getApplicationContext(),mUpload);
         databaseReference = FirebaseDatabase.getInstance().getReference("songs");
@@ -94,7 +97,7 @@ public class SongsList extends AppCompatActivity  {
                         list.add(itemsList);
                     }
                 }
-                myAdapterClassRecycleCard = new MyAdapterClassRecycleCard(getBaseContext(), list);
+                myAdapterClassRecycleCard = new MyAdapterClassRecycleCard(getApplicationContext(), list);
                 recyclerViewOther.setAdapter(myAdapterClassRecycleCard);
                 myAdapterClassRecycleCard.notifyDataSetChanged();
             }
@@ -103,5 +106,9 @@ public class SongsList extends AppCompatActivity  {
         });
     }
 
-
+    @Override
+    protected void onResume() {
+        super.onResume();
+        list.clear();
+    }
 }

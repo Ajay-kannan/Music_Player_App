@@ -62,7 +62,6 @@
                    android:layout_below="@+id/title"
                    android:layout_marginLeft="10dp"
                    android:layout_marginTop="70dp"
-                   android:layout_marginBottom="13dp"
                    android:fontFamily="@font/poppins_medium"
                    android:text="Explore our vast music library"
                    android:textColor="@color/white"
