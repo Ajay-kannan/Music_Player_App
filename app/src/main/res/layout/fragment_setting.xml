@@ -35,16 +35,17 @@
                />
 
        </androidx.cardview.widget.CardView>
+
        <TextView
            android:id="@+id/user_name"
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
+           android:layout_marginTop="10dp"
+           android:fontFamily="@font/poppins_medium"
            android:text="User Name"
            android:textAlignment="center"
-           android:textSize="20dp"
            android:textColor="#FF7A8A"
-           android:layout_marginTop="10dp"
-           />
+           android:textSize="20dp" />
    </LinearLayout>
 
     <LinearLayout
@@ -64,16 +65,17 @@
             android:backgroundTint="#1d1f3e"
             android:layout_marginTop="20dp"
             >
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Edit"
                 android:layout_gravity="center_vertical"
-                android:textSize="16sp"
-                android:textColor="#ff7a8a"
-                android:textStyle="bold"
                 android:layout_marginLeft="20dp"
-                />
+                android:fontFamily="@font/poppins_medium"
+                android:text="Edit"
+                android:textColor="#ff7a8a"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
 
             <ImageButton
@@ -91,6 +93,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/share_app"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginLeft="20dp"
@@ -99,16 +102,17 @@
             android:backgroundTint="#1d1f3e"
             android:layout_marginTop="20dp"
             >
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Share"
                 android:layout_gravity="center_vertical"
-                android:textSize="16sp"
-                android:textColor="#ff7a8a"
-                android:textStyle="bold"
                 android:layout_marginLeft="20dp"
-                />
+                android:fontFamily="@font/poppins_medium"
+                android:text="Share"
+                android:textColor="#ff7a8a"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
 
             <ImageButton
@@ -135,16 +139,17 @@
             android:layout_marginTop="20dp"
             android:clickable="true"
             >
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Add Your Artist"
                 android:layout_gravity="center_vertical"
-                android:textSize="16sp"
-                android:textColor="#ff7a8a"
-                android:textStyle="bold"
                 android:layout_marginLeft="20dp"
-                />
+                android:fontFamily="@font/poppins_medium"
+                android:text="Add Your Artist"
+                android:textColor="#ff7a8a"
+                android:textSize="16sp"
+                android:textStyle="bold" />
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -169,16 +174,17 @@
             android:backgroundTint="#1d1f3e"
             android:layout_marginTop="20dp"
             >
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Log Out"
                 android:layout_gravity="center_vertical"
-                android:textSize="16sp"
-                android:textColor="#ff7a8a"
-                android:textStyle="bold"
                 android:layout_marginLeft="20dp"
-                />
+                android:fontFamily="@font/poppins_medium"
+                android:text="Log Out"
+                android:textColor="#ff7a8a"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
 
             <ImageButton
@@ -207,44 +213,46 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Privacy Policy"
-                android:textSize="16sp"
-                android:textColor="@color/white"
-                android:textStyle="bold"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
-                />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Important for both of us"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Privacy Policy"
+                android:textColor="@color/white"
                 android:textSize="16sp"
-                android:textColor="#5a5a5a"
-                android:textStyle="bold"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="35dp"
-                />
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Terms and Conditions"
-                android:textSize="16sp"
-                android:textColor="@color/white"
-                android:textStyle="bold"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="60dp"
-                />
+                android:layout_marginTop="35dp"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Important for both of us"
+                android:textColor="#5a5a5a"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="All the stuff you need to knows"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="60dp"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Terms and Conditions"
+                android:textColor="@color/white"
                 android:textSize="16sp"
-                android:textColor="#5a5a5a"
-                android:textStyle="bold"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="85dp"
-                />
+                android:fontFamily="@font/poppins_medium"
+                android:text="All the stuff you need to knows"
+                android:textColor="#5a5a5a"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
         </androidx.cardview.widget.CardView>
 

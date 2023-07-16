@@ -25,13 +25,13 @@
             android:id="@+id/search_songs"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginLeft="12dp"
             android:layout_marginRight="55dp"
+            android:background="@null"
+            android:fontFamily="@font/poppins_medium"
             android:hint="Search"
             android:textColor="@color/white"
-            android:textColorHint="#757575"
-            android:background="@null"
-            android:layout_marginLeft="12dp"
-            />
+            android:textColorHint="#757575" />
 
         <ImageButton
             android:layout_width="wrap_content"

@@ -57,7 +57,7 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         cardView = view.findViewById(R.id.cardView);
-        cardView.setBackgroundResource(R.drawable.music_band);
+        cardView.setBackgroundResource(R.drawable.music_band2);
         recyclerView = view.findViewById(R.id.recycle_view_main);
         openAlbumUploadsActivity = view.findViewById(R.id.openAlbumUploadsActivity);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));

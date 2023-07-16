@@ -16,23 +16,24 @@
         >
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Choose"
-            android:layout_weight="1"
             android:id="@+id/buttonChoose"
-            android:background="#353a48"
-            android:textColor="@color/white"
-
-            />
-        <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Enter the name of album"
+            android:layout_weight="1"
+            android:background="#353a48"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Choose Image"
+
+            android:textColor="@color/white" />
+
+        <EditText
             android:id="@+id/edit_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_weight="4"
-            android:textColorHint="#888888"
-            />
+            android:fontFamily="@font/poppins_medium"
+            android:hint="Enter the name of album"
+            android:textColorHint="#888888" />
     </LinearLayout>
 
     <LinearLayout
@@ -47,22 +48,22 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="5dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/poppins_medium"
             android:text="choose category"
             android:textColor="@color/black"
-            android:textStyle="bold"
-            android:layout_weight="1"
-            android:layout_marginTop="40dp"
             android:textSize="16sp"
-            android:layout_marginBottom="5dp"
-            />
+            android:textStyle="bold" />
 
         <Spinner
+            android:id="@+id/spinner"
             android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:id="@+id/spinner"
             android:layout_marginTop="10dp"
-            android:background="#353a48"
-            />
+            android:background="@color/black"
+            android:pointerIcon="arrow" />
 
         <ImageView
             android:layout_width="230dp"
@@ -79,24 +80,26 @@
         android:layout_alignParentBottom="true"
         android:orientation="vertical"
         >
-<Button
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_weight="1"
-    android:text="uploads"
-    android:id="@+id/buttonupload"
-    android:background="#353a48"
-    />
 
         <Button
-            android:layout_marginBottom="100dp"
+            android:id="@+id/buttonupload"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#353a48"
+            android:fontFamily="@font/poppins_medium"
+            android:text="uploads" />
+
+        <Button
             android:id="@+id/openimageuploadactivity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Open Upload Songs to Playlist"
+            android:layout_marginBottom="100dp"
+            android:background="#353a48"
+            android:fontFamily="@font/poppins_medium"
             android:onClick="openAlbumUploadsActivity"
-            android:textColor="@color/white"
-            android:background="#353a48" />
+            android:text="Open Upload Songs to Playlist"
+            android:textColor="@color/white" />
     </LinearLayout>
 </RelativeLayout>

@@ -11,14 +11,17 @@
         android:id="@+id/song_title_main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Title of the song"
-        android:singleLine="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
         android:ellipsize="marquee"
-        android:textColor="@color/white"
-        android:layout_margin="20dp"
+        android:fontFamily="@font/poppins_medium"
         android:padding="20dp"
-        android:textSize="20dp"
-        />
+        android:singleLine="true"
+        android:text="Title of the song"
+        android:textColor="@color/white"
+        android:textSize="20dp" />
         <ImageView
             android:id="@+id/music_icon"
             android:layout_width="150dp"

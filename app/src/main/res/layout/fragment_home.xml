@@ -30,39 +30,43 @@
            <RelativeLayout
                android:layout_width="match_parent"
                android:layout_height="match_parent">
+
                <TextView
                    android:id="@+id/title"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
-                   android:text="Featured Songs"
-                   android:textSize="20sp"
-                   tools:ignore="HardcodedText"
                    android:layout_marginLeft="10dp"
+                   android:layout_marginTop="10dp"
+                   android:fontFamily="@font/poppins_medium"
+                   android:text="Welcome to Music Player"
                    android:textColor="@color/white"
-                   />
+                   android:textSize="20sp"
+
+                   tools:ignore="HardcodedText" />
+
                <TextView
                    android:id="@+id/song_desc"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
-                   android:text="the song description"
-                   android:textColor="@color/white"
                    android:layout_below="@+id/song_title"
-                   android:textSize="16dp"
                    android:layout_marginLeft="10dp"
-                   />
+                   android:fontFamily="@font/poppins_medium"
+                   android:text="Get ready to enjoy your favorite tunes"
+                   android:textColor="@color/white"
+                   android:textSize="16dp" />
 
                <TextView
                    android:id="@+id/song_title"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
-                   android:layout_marginBottom="13dp"
-                   android:text="the song title"
                    android:layout_below="@+id/title"
-                   android:layout_marginTop="90dp"
-                   android:textColor="@color/white"
-                   android:textSize="18dp"
                    android:layout_marginLeft="10dp"
-                   />
+                   android:layout_marginTop="70dp"
+                   android:layout_marginBottom="13dp"
+                   android:fontFamily="@font/poppins_medium"
+                   android:text="Explore our vast music library"
+                   android:textColor="@color/white"
+                   android:textSize="18dp" />
            </RelativeLayout>
 
         </androidx.cardview.widget.CardView>
@@ -71,13 +75,13 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="40dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/poppins_medium"
         android:text="Playlists"
         android:textColor="@color/white"
-        android:textStyle="bold"
         android:textSize="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        />
+        android:textStyle="bold" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycle_view_main"
@@ -99,16 +103,17 @@
             android:id="@+id/openAlbumUploadsActivity"
             android:clickable="true"
             >
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Add Your Artist"
                 android:layout_gravity="center_vertical"
-                android:textSize="16sp"
-                android:textColor="#ff7a8a"
-                android:textStyle="bold"
                 android:layout_marginLeft="5dp"
-                />
+                android:fontFamily="@font/poppins_medium"
+                android:text="Add Your Artist"
+                android:textColor="#ff7a8a"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <ImageButton
                 android:layout_width="wrap_content"

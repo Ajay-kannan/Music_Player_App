@@ -28,27 +28,28 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
-                android:layout_marginBottom="20dp"
                 android:layout_marginLeft="35dp"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="@font/poppins_medium"
                 android:text="the song title"
                 android:textColor="@color/white"
-                android:textSize="24dp"
-                />
+                android:textSize="24dp" />
+
             <Button
                 android:id="@+id/idBtnGetOtp"
                 android:layout_width="wrap_content"
                 android:layout_height="28dp"
-                android:text="follow"
-                android:textSize="12sp"
-                android:background="@drawable/follow_btn"
-                android:textColor="#101435"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
                 android:layout_marginRight="30dp"
                 android:layout_marginBottom="20dp"
+                android:background="@drawable/follow_btn"
+                android:fontFamily="@font/poppins_medium"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
-                />
+                android:text="follow"
+                android:textColor="#101435"
+                android:textSize="12sp" />
 
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
@@ -92,14 +93,14 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/poppins_medium"
             android:text="Other Albums"
             android:textColor="@color/white"
             android:textSize="18dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="20dp"
-            android:textStyle="bold"
-            />
+            android:textStyle="bold" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycle_view_song_list"
