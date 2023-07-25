@@ -52,7 +52,6 @@ public class SongsList extends AppCompatActivity  {
         mUpload = new ArrayList<>();
         followBtn = findViewById(R.id.follow_btn);
         recyclerView.setAdapter(exoSongAdapter);
-        exoSongAdapter = new ExoSongAdapter(getApplicationContext(),mUpload);
         databaseReference = FirebaseDatabase.getInstance().getReference("songs");
 
         recyclerViewOther = findViewById(R.id.recycle_view_song_list);
@@ -74,6 +73,7 @@ public class SongsList extends AppCompatActivity  {
                         mUpload.add(getSongs);
                     }
                 }
+                exoSongAdapter = new ExoSongAdapter(getApplicationContext(),mUpload);
                 recyclerView.setAdapter(exoSongAdapter);
                 exoSongAdapter.notifyDataSetChanged();
             }
@@ -106,9 +106,9 @@ public class SongsList extends AppCompatActivity  {
         });
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        list.clear();
-    }
+//    @Override
+//    protected void onResume() {
+//        super.onResume();
+//        list.clear();
+//    }
 }
